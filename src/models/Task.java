@@ -13,13 +13,11 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(
-            name = "getAllMessages",
-            query = "SELECT m FROM Message AS m ORDER BY m.id DESC"
-            )
+        @NamedQuery(name = "getAllTasks", query = "SELECT m FROM Task AS m ORDER BY m.id DESC"),
+        @NamedQuery(name = "getTasksCount", query = "SELECT COUNT(m) FROM Task AS m")
 })
-@Table(name = "messages")
-public class Message {
+@Table(name = "tasks")
+public class Task {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
